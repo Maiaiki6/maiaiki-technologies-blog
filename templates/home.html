@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}MAIAIKI TECHNOLOGIES | Home{% endblock %}
+
+{% block content %}
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <p class="eyebrow">Fast phone repair support</p>
+        <h1>Repair advice and trustworthy service for everyday mobile problems.</h1>
+        <p>From cracked screens to battery issues, MAIAIKI TECHNOLOGIES helps customers get back online quickly.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="{% url 'shop:quote' %}">Request a quote</a>
+          <a class="btn btn-secondary" href="{% url 'blog:blog_list' %}">Read the blog</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow eyebrow-dark">Popular topics</p>
+        <h2>Browse by category</h2>
+      </div>
+    </div>
+    <div class="category-row">
+      {% for category in categories %}
+        <a class="category-pill" href="{% url 'blog:blog_list' %}?category={{ category.slug }}">{{ category.name }}</a>
+      {% empty %}
+        <span>No categories yet.</span>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="container section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow eyebrow-dark">Helpful reads</p>
+        <h2>Latest posts</h2>
+      </div>
+      <a href="{% url 'blog:blog_list' %}" class="text-link">View all posts</a>
+    </div>
+    <div class="card-grid">
+      {% for post in posts %}
+        <article class="card">
+          <div class="card-body">
+            {% if post.category %}
+              <span class="tag">{{ post.category.name }}</span>
+            {% endif %}
+            <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+            <p>{{ post.excerpt|default:post.body|truncatewords:20 }}</p>
+          </div>
+        </article>
+      {% empty %}
+        <p>No published posts yet.</p>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="container section feature-block">
+    <div class="feature-card">
+      <h2>Need a quick fix?</h2>
+      <p>Book a repair or ask us about your device before you spend money on a replacement.</p>
+      <a class="btn btn-primary" href="{% url 'shop:quote' %}">Request a quote</a>
+    </div>
+  </section>
+{% endblock %}

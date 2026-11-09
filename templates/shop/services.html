@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}Services & Pricing | MAIAIKI TECHNOLOGIES{% endblock %}
+
+{% block content %}
+  <section class="container section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow eyebrow-dark">Fast phone help</p>
+        <h1>Services & Pricing</h1>
+      </div>
+    </div>
+
+    <div class="card-grid three-col">
+      <article class="card">
+        <div class="card-body">
+          <h2>Screen repair</h2>
+          <p>Fast glass and display replacement for popular phone models.</p>
+          <strong>From $49</strong>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-body">
+          <h2>Battery replacement</h2>
+          <p>Improve battery life and restore reliable daily performance.</p>
+          <strong>From $39</strong>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-body">
+          <h2>Water damage recovery</h2>
+          <p>Professional diagnosis and careful cleaning for water-related issues.</p>
+          <strong>From $59</strong>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="container section">
+    <div class="info-grid">
+      <div class="feature-card">
+        <h2>Need a quick fix?</h2>
+        <p>Call or WhatsApp us for a fast answer on your device issue.</p>
+        <p><strong>Phone:</strong> <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/1234567890">Message us now</a></p>
+        <p><strong>Hours:</strong> Mon-Sat, 9:00am - 7:00pm</p>
+      </div>
+
+      <div class="feature-card">
+        <h2>Visit the shop</h2>
+        <p>12 Repair Lane, Downtown Plaza, Suite 204</p>
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps?q=Downtown%20Plaza&output=embed"
+            width="100%"
+            height="220"
+            style="border:0; border-radius: 12px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="MAIAIKI TECHNOLOGIES location map">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

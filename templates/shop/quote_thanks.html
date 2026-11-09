@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Quote sent | MAIAIKI TECHNOLOGIES{% endblock %}
+
+{% block content %}
+  <section class="container section">
+    <h1>Thanks for your quote request</h1>
+    <p>We have received your details and will get back to you soon.</p>
+    <a class="btn btn-primary" href="{% url 'blog:home' %}">Back home</a>
+  </section>
+{% endblock %}

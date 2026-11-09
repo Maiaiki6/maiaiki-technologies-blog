@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ category.name }} | MAIAIKI TECHNOLOGIES{% endblock %}
+
+{% block content %}
+  <section class="container section">
+    <h1>{{ category.name }}</h1>
+    <div class="card-grid">
+      {% for post in posts %}
+        <article class="card">
+          <div class="card-body">
+            <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+            <p>{{ post.excerpt|default:post.body|truncatewords:28 }}</p>
+          </div>
+        </article>
+      {% empty %}
+        <p>No posts in this category yet.</p>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ post.title }} | MAIAIKI TECHNOLOGIES{% endblock %}
+
+{% block content %}
+  <article class="container section article">
+    <p class="eyebrow">
+      {% if post.category %}
+        <a href="{% url 'blog:category_detail' post.category.slug %}">{{ post.category.name }}</a>
+      {% endif %}
+    </p>
+    <h1>{{ post.title }}</h1>
+    <p class="meta">Published {{ post.published_at|date:"F j, Y" }}</p>
+
+    {% if post.image %}
+      <img src="{{ post.image.url }}" alt="{{ post.title }}" class="article-image" />
+    {% endif %}
+
+    <div class="article-body">
+      {{ post.body|linebreaksbr }}
+    </div>
+  </article>
+{% endblock %}

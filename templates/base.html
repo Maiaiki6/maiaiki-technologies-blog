@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}MAIAIKI TECHNOLOGIES{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}MAIAIKI TECHNOLOGIES helps customers with fast phone repair, expert advice, and reliable service.{% endblock %}" />
+    <link rel="stylesheet" href="{% static 'css/site.css' %}" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a href="{% url 'blog:home' %}" class="brand">MAIAIKI TECHNOLOGIES</a>
+        <nav class="nav-links">
+          <a href="{% url 'blog:home' %}">Home</a>
+          <a href="{% url 'blog:blog_list' %}">Blog</a>
+          <a href="{% url 'shop:services' %}">Services</a>
+          <a href="{% url 'shop:quote' %}">Quote</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <h3>MAIAIKI TECHNOLOGIES</h3>
+          <p>Phone repairs, trusted advice, and quick turnaround.</p>
+        </div>
+        <div>
+          <p>Call: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+          <p>WhatsApp: <a href="https://wa.me/1234567890">Message us</a></p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Request a quote | MAIAIKI TECHNOLOGIES{% endblock %}
+
+{% block content %}
+  <section class="container section form-wrap">
+    <h1>Request a quote</h1>
+    <p class="subtle-copy">Share a few details and our team will follow up with repair advice or a quote.</p>
+    <form method="post" class="quote-form">
+      {% csrf_token %}
+      {% if error %}
+        <p class="form-error">{{ error }}</p>
+      {% endif %}
+      <div class="form-grid">
+        <label>
+          Full name
+          <input type="text" name="full_name" required />
+        </label>
+        <label>
+          Phone number
+          <input type="tel" name="phone" required />
+        </label>
+        <label>
+          Device model
+          <input type="text" name="device" required />
+        </label>
+        <label class="full-width">
+          Describe the issue
+          <textarea name="issue" rows="5" required></textarea>
+        </label>
+        <input type="text" name="website" class="hidden-honeypot" tabindex="-1" autocomplete="off" />
+      </div>
+      <div class="quote-actions">
+        <button type="submit" class="btn btn-primary">Send request</button>
+        <a class="btn btn-secondary dark" href="tel:+1234567890">Call now</a>
+      </div>
+    </form>
+  </section>
+{% endblock %}
